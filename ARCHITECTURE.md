@@ -9,6 +9,15 @@ anti-extraction rules.
 > chat/user IDs, and the server IP are replaced with placeholders
 > (`__BRIDGE_TOKEN__`, `GROUP_ID_*`, `OWNER_USER_ID`, `YOUR_SERVER_IP`, …).
 
+**Runtime note.** The agent side of this design targets **Muse** (Meta's
+personal-agent runtime): the agent is a chat session woken by hooks, not a
+program calling an LLM API — hence the pollers, per-group windows, and
+daily rotation described below. The bridge itself is runtime-agnostic:
+any worker that speaks its HTTP API (for example a small direct-API
+caller) can take the agent's place without bridge changes. A from-scratch
+implementation would normally do exactly that and skip the hook layer
+entirely.
+
 ## Components
 
 ```

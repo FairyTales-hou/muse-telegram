@@ -12,6 +12,20 @@ lives in Markdown state files.
 API surface, security model, and the measured latency bottlenecks that are
 the current optimization targets.
 
+## Why this shape?
+
+This project is adapted specifically to **Muse** (Meta's personal-agent
+runtime): here the "agent" is a Muse chat session — woken by polling
+hooks, holding its memory in files, taking chat turns instead of API
+calls. That is why there are bash pollers, per-group chat windows, and a
+daily rotation, rather than a simple API loop.
+
+If you build your own version, the normal design is simpler: **call an
+LLM API directly**. `bridge.py` is deliberately runtime-agnostic, and its
+token-guarded HTTP API is the seam — swap the hook + chat-window layer
+for a small worker that calls an API, and everything else (queue, claim
+gate, moderation, archives) works unchanged.
+
 ## Features
 
 - **Zero-dependency bridge** — one Python file, standard library only; no
