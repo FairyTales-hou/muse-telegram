@@ -1,5 +1,7 @@
 # Lulu — Telegram Group Bridge for an LLM Agent
 
+English | [繁體中文](README.zh-TW.md)
+
 An LLM agent that lives in Telegram groups: chats in character, draws and
 generates media on request, looks things up, and moderates ad spam —
 behind a small stdlib-only Python bridge with a token-guarded HTTP API,
