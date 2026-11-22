@@ -1,6 +1,6 @@
 # 露露（Lulu）— 給 LLM 智能體用的 Telegram 群組橋接
 
-[English](README.md) | 繁體中文
+繁體中文 | [English](README.md) | [简体中文](README.zh-CN.md)
 
 一個住在 Telegram 群組裡的 LLM 智能體：以角色身分聊天、應要求畫圖與
 生成媒體、查詢公開資訊、審核廣告垃圾訊息 — 背後是一座只用 Python
