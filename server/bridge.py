@@ -52,14 +52,20 @@ TG_DOWNLOAD_LIMIT = 20 * 1024 * 1024  # Telegram bot API file download limit
 MEDIA_RETENTION_SECONDS = 7 * 24 * 3600
 CLAIM_LEASE_SECONDS = 900
 ARCHIVE_DIR = os.path.join(BASE_DIR, "archive")
-# Main owner channel (帝): an authorized personal account sending the
+# Main owner channel: an authorized personal account sending the
 # binding code binds the group to this channel.
-MAIN_OWNER_CHANNEL_ID = OWNER_CHANNEL_ID
-MAIN_OWNER_CHANNEL_TITLE = "帝"
+# FORK PATCH (Altare deploy): upstream snapshot left this as a bare
+# placeholder name, which raises NameError at import and the bridge never
+# starts. Read from env; None when the owner has no channel.
+MAIN_OWNER_CHANNEL_ID = int(os.environ.get("OWNER_CHANNEL_ID", "0") or 0) or None
+MAIN_OWNER_CHANNEL_TITLE = "Anbei"
 # Telegram's shared @Channel_Bot anonymous identity: it is the from.id
 # of ANY channel-posted message, never a personal account, and must
 # never be added to authorized_ids.
-CHANNEL_BOT_SHARED_ID = CHANNEL_BOT_SHARED_ID
+# FORK PATCH (Altare deploy): upstream left this as a bare placeholder
+# name (NameError at import). 136817688 is Telegram's well-known public
+# @Channel_Bot user id.
+CHANNEL_BOT_SHARED_ID = 136817688
 
 _lock = threading.Lock()
 _archive_lock = threading.Lock()
