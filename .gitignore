@@ -1,0 +1,10 @@
+# never commit live state or secrets
+config.json
+bot_token.txt
+state.json
+*.token
+archive/
+media/
+groups_state/
+daily_reports.md
+__pycache__/

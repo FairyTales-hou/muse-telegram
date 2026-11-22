@@ -1,0 +1,21 @@
+[Unit]
+Description=Telegram Group Bridge Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tgbridge
+Group=tgbridge
+WorkingDirectory=/opt/telegram-bridge
+ExecStart=/usr/bin/python3 /opt/telegram-bridge/bridge.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=telegram-bridge
+
+[Install]
+WantedBy=multi-user.target

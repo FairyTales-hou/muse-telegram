@@ -1,0 +1,14 @@
+{
+  "bridge_token": "__BRIDGE_TOKEN__",
+  "authorized_ids": [
+    "OWNER_USER_ID"
+  ],
+  "api_port": 29301,
+  "bindings": [
+    {
+      "group_chat_id": "GROUP_ID_*",
+      "owner_channel_id": "OWNER_CHANNEL_ID"
+    }
+  ],
+  "dm_chat_id": null
+}
